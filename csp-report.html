@@ -1,0 +1,489 @@
+<!DOCTYPE html><html lang="en-AU"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Report — cleaningsparksolutions.com.au | OzSEO Toolkit</title>
+<style>:root {
+  --bg: #0a1210;
+  --bg2: #0e1a16;
+  --panel: #12211c;
+  --panel2: #16281f;
+  --border: #23443a;
+  --text: #e8f3ee;
+  --muted: #9db8ad;
+  --green: #2fd57b;
+  --green-dim: #1c8f53;
+  --gold: #f5c542;
+  --red: #ff6b6b;
+  --amber: #ffb020;
+  --blue: #5ec8f8;
+  --radius: 14px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: radial-gradient(1200px 600px at 80% -10%, #14352a 0%, var(--bg) 55%) fixed, var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- header ---------- */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10, 18, 16, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav { display: flex; align-items: center; gap: 22px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: var(--text); }
+.logo:hover { text-decoration: none; }
+.logo-badge {
+  width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--green), #149a5b);
+  font-size: 17px; color: #04120a; font-weight: 900;
+}
+.nav-links { display: flex; gap: 6px; margin-left: auto; }
+.nav-links a {
+  color: var(--muted); padding: 8px 14px; border-radius: 8px; font-size: 14px; font-weight: 600;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--panel2); text-decoration: none; }
+.free-pill {
+  background: rgba(245, 197, 66, 0.12); color: var(--gold);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+}
+
+/* ---------- hero ---------- */
+.hero { padding: 64px 0 30px; text-align: center; }
+.hero h1 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.15; font-weight: 850; letter-spacing: -0.5px; }
+.hero h1 .grad {
+  background: linear-gradient(90deg, var(--green), #7ee2ae 45%, var(--gold));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero p.sub { color: var(--muted); max-width: 720px; margin: 14px auto 0; font-size: 16px; }
+
+/* ---------- audit form ---------- */
+.audit-form {
+  display: flex; gap: 10px; max-width: 680px; margin: 30px auto 12px;
+  background: var(--panel); border: 1px solid var(--border);
+  padding: 10px; border-radius: 16px;
+}
+.audit-form input {
+  flex: 1; background: transparent; border: none; outline: none;
+  color: var(--text); font-size: 16px; padding: 10px 12px; min-width: 0;
+}
+.audit-form input::placeholder { color: #6d8a7f; }
+.btn {
+  background: linear-gradient(135deg, var(--green), #17a55f);
+  color: #05240f; font-weight: 800; font-size: 15px;
+  border: none; border-radius: 10px; padding: 12px 22px; cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.btn:disabled { opacity: 0.55; cursor: wait; transform: none; }
+.btn.secondary {
+  background: var(--panel2); color: var(--text); border: 1px solid var(--border);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; }
+.chip {
+  font-size: 12.5px; color: var(--muted); background: var(--panel);
+  border: 1px solid var(--border); padding: 5px 12px; border-radius: 999px;
+}
+
+/* ---------- progress ---------- */
+.progress-box {
+  max-width: 680px; margin: 26px auto 0; display: none;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px;
+  text-align: left;
+}
+.progress-box.show { display: block; }
+.progress-title { font-weight: 700; margin-bottom: 10px; display: flex; gap: 10px; align-items: center; }
+.spinner {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid var(--border); border-top-color: var(--green);
+  animation: spin 0.8s linear infinite; display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.progress-bar { height: 6px; background: var(--panel2); border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; width: 5%; background: linear-gradient(90deg, var(--green), var(--gold)); border-radius: 99px; transition: width 0.6s ease; }
+.progress-step { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+/* ---------- backend-asleep banner ---------- */
+.backend-banner {
+  max-width: 680px; margin: 0 auto 18px; padding: 14px 18px;
+  background: rgba(255, 176, 32, 0.1); border: 1px solid rgba(255, 176, 32, 0.45);
+  color: #ffe9b3; border-radius: 12px; font-size: 14px; display: none; text-align: left;
+}
+.backend-banner.show { display: block; }
+
+/* ---------- error ---------- */
+.error-box {
+  max-width: 680px; margin: 20px auto; display: none;
+  background: rgba(255, 107, 107, 0.08); border: 1px solid rgba(255, 107, 107, 0.4);
+  color: #ffb3b3; border-radius: 12px; padding: 14px 18px; font-size: 14px;
+}
+.error-box.show { display: block; }
+
+/* ---------- results ---------- */
+#results { display: none; }
+#results.show { display: block; }
+.overall-card {
+  display: flex; flex-wrap: wrap; gap: 26px; align-items: center;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--border); border-radius: 20px; padding: 28px; margin: 34px 0 20px;
+}
+.score-ring { position: relative; width: 150px; height: 150px; flex: 0 0 auto; margin: 0 auto; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .ring-bg { stroke: #1d3a30; }
+.score-ring .ring-val { transition: stroke-dashoffset 1s ease; }
+.score-num {
+  position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+}
+.score-num b { font-size: 40px; font-weight: 850; }
+.score-num small { display: block; color: var(--muted); font-size: 11px; margin-top: -4px; }
+.overall-meta { flex: 1; min-width: 260px; }
+.overall-meta h2 { font-size: 22px; margin-bottom: 4px; word-break: break-all; }
+.overall-meta .url-line { color: var(--muted); font-size: 13px; margin-bottom: 12px; word-break: break-all; }
+.grade-pill { display: inline-block; font-weight: 800; padding: 3px 12px; border-radius: 999px; font-size: 13px; margin-left: 8px; vertical-align: middle; }
+.summary-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+.stat {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 10px; padding: 8px 14px; font-size: 13px; color: var(--muted);
+}
+.stat b { color: var(--text); }
+
+/* group score grid */
+.group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-bottom: 30px; }
+.group-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+  padding: 16px 18px; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.group-card:hover { border-color: var(--green-dim); transform: translateY(-2px); }
+.group-card .gc-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.group-card h3 { font-size: 14.5px; font-weight: 700; }
+.mini-ring { position: relative; width: 46px; height: 46px; flex: 0 0 auto; }
+.mini-ring svg { transform: rotate(-90deg); }
+.mini-ring span { position: absolute; inset: 0; display: grid; place-items: center; font-size: 12.5px; font-weight: 800; }
+.group-card .gc-counts { display: flex; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--muted); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.dot.pass { background: var(--green); } .dot.warn { background: var(--amber); } .dot.fail { background: var(--red); }
+
+/* section blocks */
+.section-block {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 18px;
+  margin-bottom: 18px; overflow: hidden;
+}
+.section-head {
+  display: flex; align-items: center; gap: 12px; padding: 18px 22px; cursor: pointer; user-select: none;
+}
+.section-head:hover { background: rgba(255,255,255,0.02); }
+.section-head h2 { font-size: 17px; font-weight: 750; flex: 1; }
+.section-score { font-weight: 800; font-size: 15px; }
+.section-chevron { transition: transform 0.2s ease; color: var(--muted); }
+.section-block.open .section-chevron { transform: rotate(180deg); }
+.section-body { display: none; padding: 4px 22px 20px; }
+.section-block.open .section-body { display: block; }
+
+.check {
+  display: flex; gap: 12px; padding: 11px 0; border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 14px;
+}
+.check:first-child { border-top: none; }
+.check-icon { width: 22px; height: 22px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-size: 12px; font-weight: 900; margin-top: 1px; }
+.check-icon.pass { background: rgba(47,213,123,0.15); color: var(--green); }
+.check-icon.warn { background: rgba(255,176,32,0.15); color: var(--amber); }
+.check-icon.fail { background: rgba(255,107,107,0.15); color: var(--red); }
+.check-icon.info { background: rgba(94,200,248,0.12); color: var(--blue); }
+.check-body b { display: block; font-size: 14px; }
+.check-body .msg { color: var(--muted); font-size: 13.5px; word-break: break-word; }
+.check-body .fix { color: #ffe9b3; font-size: 13px; margin-top: 3px; }
+.check-body .fix::before { content: "\2192 Fix: "; font-weight: 700; color: var(--gold); }
+
+/* SERP preview */
+.serp {
+  background: #fff; color: #202124; border-radius: 14px; padding: 20px 24px; margin: 12px 0 26px;
+  max-width: 640px;
+}
+.serp .serp-url { font-size: 13px; color: #202124; display: flex; align-items: center; gap: 8px; }
+.serp .serp-url .fav { width: 22px; height: 22px; border-radius: 50%; background: #f1f3f4; display: grid; place-items: center; font-size: 11px; color: #5f6368; }
+.serp .serp-url span.u { color: #4d5156; font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 480px; }
+.serp .serp-title { color: #1a0dab; font-size: 20px; margin: 6px 0 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.serp .serp-desc { color: #4d5156; font-size: 14px; }
+.serp-note { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+
+/* keywords / tables */
+.kw-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+.kw-pill { background: var(--panel2); border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; font-size: 13px; }
+.kw-pill b { color: var(--green); }
+.kw-pill small { color: var(--muted); }
+
+/* speed panel */
+#speedPanel { display: none; }
+#speedPanel.show { display: block; }
+.speed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 14px 0; }
+.metric-card { background: var(--panel2); border: 1px solid var(--border); border-radius: 12px; padding: 14px; text-align: center; }
+.metric-card b { display: block; font-size: 22px; font-weight: 850; }
+.metric-card small { color: var(--muted); font-size: 12px; }
+.metric-card.good b { color: var(--green); }
+.metric-card.mid b { color: var(--amber); }
+.metric-card.bad b { color: var(--red); }
+.opps { margin-top: 8px; }
+.opp { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13.5px; }
+.opp span.saving { color: var(--gold); font-weight: 700; white-space: nowrap; }
+.psi-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+
+/* quick tools */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.tool-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
+  transition: border-color 0.15s ease, transform 0.15s ease; display: block; color: var(--text);
+}
+.tool-card:hover { border-color: var(--green-dim); transform: translateY(-2px); text-decoration: none; }
+.tool-card h3 { font-size: 15px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.tool-card p { color: var(--muted); font-size: 13px; }
+.tool-card .tag { margin-left: auto; font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 99px; background: rgba(47,213,123,0.13); color: var(--green); }
+.tool-card .tag.ext { background: rgba(94,200,248,0.12); color: var(--blue); }
+
+/* states */
+.states-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.state-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.state-card h3 { font-size: 15px; display: flex; align-items: center; gap: 8px; }
+.state-code { background: linear-gradient(135deg, var(--green), #149a5b); color: #05240f; font-weight: 900; font-size: 11px; padding: 2px 8px; border-radius: 6px; }
+.state-card p { color: var(--muted); font-size: 13px; margin-top: 6px; }
+.state-card .cities { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.state-card .cities span { font-size: 11.5px; background: var(--panel2); border: 1px solid var(--border); border-radius: 99px; padding: 2px 9px; color: var(--muted); }
+
+/* open source */
+.oss-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.oss-item { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 13px; color: var(--muted); }
+.oss-item b { color: var(--text); display: block; font-size: 14px; margin-bottom: 2px; }
+
+/* section titles */
+.section-title { margin: 46px 0 6px; font-size: 24px; font-weight: 800; letter-spacing: -0.3px; }
+.section-sub { color: var(--muted); font-size: 14px; margin-bottom: 18px; max-width: 760px; }
+
+/* footer */
+footer.site { border-top: 1px solid var(--border); margin-top: 60px; padding: 34px 0; color: var(--muted); font-size: 13px; }
+footer.site .cols { display: flex; flex-wrap: wrap; gap: 26px; justify-content: space-between; }
+footer.site h4 { color: var(--text); font-size: 13px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.6px; }
+footer.site .states-line { margin-top: 18px; line-height: 1.8; }
+
+/* backlinks page */
+.form-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 26px;
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid .full { grid-column: 1 / -1; }
+label.field { display: block; font-size: 13px; font-weight: 700; color: var(--muted); }
+label.field input, label.field select, label.field textarea {
+  width: 100%; margin-top: 6px; background: var(--bg2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; font-size: 14px;
+  font-family: inherit; outline: none;
+}
+label.field input:focus, label.field select:focus, label.field textarea:focus { border-color: var(--green-dim); }
+.form-msg { margin-top: 12px; font-size: 14px; }
+.form-msg.ok { color: var(--green); } .form-msg.err { color: var(--red); }
+
+.listing {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
+}
+.listing h3 { font-size: 15.5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.listing .meta { display: flex; gap: 8px; margin: 8px 0; flex-wrap: wrap; }
+.badge { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: var(--panel2); border: 1px solid var(--border); color: var(--muted); }
+.badge.state { background: rgba(47,213,123,0.13); color: var(--green); border-color: rgba(47,213,123,0.3); }
+.badge.cat { background: rgba(245,197,66,0.1); color: var(--gold); border-color: rgba(245,197,66,0.3); }
+.listing p { color: var(--muted); font-size: 13.5px; }
+.listing .lf { margin-top: 8px; font-size: 13px; color: #ffe9b3; }
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 18px; }
+.filters select { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 9px 12px; font-size: 14px; }
+.listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.empty-note { color: var(--muted); background: var(--panel); border: 1px dashed var(--border); border-radius: 14px; padding: 26px; text-align: center; font-size: 14px; }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 20px 0 30px; }
+.step { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.step .n { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--green), #149a5b); color: #05240f; font-weight: 900; display: grid; place-items: center; margin-bottom: 10px; }
+.step h3 { font-size: 15px; margin-bottom: 4px; }
+.step p { font-size: 13px; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .audit-form { flex-direction: column; }
+  .audit-form .btn { width: 100%; }
+  .nav-links a { padding: 8px 8px; }
+}
+</style></head><body>
+<header class="site"><div class="container nav"><span class="logo"><span class="logo-badge">Oz</span> OzSEO Toolkit — Audit Report</span>
+<span class="free-pill">Generated 12/09/2026, 5:26:02 am</span></div></header>
+<main class="container">
+<div class="overall-card"><div class="score-ring"><svg width="150" height="150">
+<circle class="ring-bg" cx="75" cy="75" r="64" fill="none" stroke-width="12"></circle>
+<circle cx="75" cy="75" r="64" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="402.1238596594935" stroke-dashoffset="28.148670176164558" style="stroke:var(--green)" transform="rotate(-90 75 75)"></circle>
+</svg><div class="score-num"><div><b>93</b><small>OVERALL / 100</small></div></div></div>
+<div class="overall-meta"><h2>cleaningsparksolutions.com.au<span class="grade-pill" style="background:var(--green);color:#08130c">Grade A</span></h2>
+<div class="url-line">https://cleaningsparksolutions.com.au/</div>
+<div class="summary-stats">
+<div class="stat">TTFB <b>71 ms</b></div>
+<div class="stat">HTML <b>72 KB</b></div>
+<div class="stat">Words <b>1,437</b></div>
+<div class="stat">Checks <b>87</b></div>
+<div class="stat">SSL <b>35 days left</b></div>
+<div class="stat">Local mentions <b>ACT</b></div>
+</div></div></div>
+<div class="group-grid"><div class="group-card" style="cursor:default"><div class="gc-top"><h3>On-Page SEO</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="5.969026041820598" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">95</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>17</span><span><span class="dot warn"></span>2</span><span><span class="dot fail"></span>0</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>GEO / AI SEO</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="9.55044166691296" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">92</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>11</span><span><span class="dot warn"></span>2</span><span><span class="dot fail"></span>0</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>Technical &amp; Health</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="8.356636458548849" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">93</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>13</span><span><span class="dot warn"></span>0</span><span><span class="dot fail"></span>1</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>Speed &amp; Performance</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="14.32566250036946" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">88</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>6</span><span><span class="dot warn"></span>2</span><span><span class="dot fail"></span>0</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>Security &amp; Trust</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="11.938052083641224" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">90</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>4</span><span><span class="dot warn"></span>1</span><span><span class="dot fail"></span>0</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>Mobile</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="0" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">100</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>4</span><span><span class="dot warn"></span>0</span><span><span class="dot fail"></span>0</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>Content Quality</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="14.32566250036946" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">88</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>3</span><span><span class="dot warn"></span>1</span><span><span class="dot fail"></span>0</span></div></div><div class="group-card" style="cursor:default"><div class="gc-top"><h3>Local SEO (Australia)</h3>
+  <div class="mini-ring"><svg width="46" height="46"><circle cx="23" cy="23" r="19" fill="none" stroke="#1d3a30" stroke-width="5"></circle>
+  <circle cx="23" cy="23" r="19" fill="none" stroke="var(--green)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119.38052083641213" stroke-dashoffset="4.775220833456487" transform="rotate(-90 23 23)"></circle></svg>
+  <span style="color:var(--green)">96</span></div></div>
+  <div class="gc-counts"><span><span class="dot pass"></span>12</span><span><span class="dot warn"></span>1</span><span><span class="dot fail"></span>0</span></div></div></div>
+<h2 class="section-title">Google preview (SERP snippet)</h2>
+<div class="serp"><div class="serp-url"><span class="fav">&#127760;</span><span class="u">cleaningsparksolutions.com.au/</span></div>
+<div class="serp-title">Cleaning Services Canberra &amp; Queanbeyan | Cleaning Spark</div><div class="serp-desc">Trusted local cleaners in Canberra &amp; Queanbeyan. End of lease, carpet, oven, office and house cleaning. Fixed quotes in 2 hours. Rated 4.9 from 112 Google reviews.</div></div>
+<div class="section-block open"><div class="section-head" style="cursor:default"><h2>&#9889; Speed probe (3 live requests)</h2></div>
+<div class="section-body" style="display:block"><div class="speed-grid">
+<div class="metric-card good"><b>25 ms</b><small>Avg TTFB</small></div>
+<div class="metric-card good"><b>24 ms</b><small>Best TTFB</small></div>
+<div class="metric-card good"><b>72 KB</b><small>HTML weight</small></div>
+<div class="metric-card good"><b>br</b><small>Compression</small></div>
+</div></div></div>
+<h2 class="section-title">Detailed results (87 checks)</h2>
+<div class="section-block open" id="sec-seo">
+  <div class="section-head" style="cursor:default"><h2>On-Page SEO</h2><span class="section-score" style="color:var(--green)">95/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Title tag</b><div class="msg">Found: “Cleaning Services Canberra &amp; Queanbeyan | Cleaning Spark” (56 chars).</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Meta description</b><div class="msg">Found (163 chars).</div><div class="fix">Trim it to ~155 characters so it isn’t cut off in search results.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Meta keywords tag</b><div class="msg">No meta keywords tag (correct — Google ignores it).</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>H1 heading</b><div class="msg">Exactly one H1: “Professional Cleaning Services in Canberra &amp; Queanbeyan”</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Heading structure</b><div class="msg">42 headings found (11 H2s).</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Canonical tag</b><div class="msg">Canonical: https://cleaningsparksolutions.com.au/</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Indexability</b><div class="msg">Page is not blocked from indexing by meta robots.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>HTML lang attribute</b><div class="msg">lang=&quot;en-AU&quot; declared.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Character encoding</b><div class="msg">Charset declared: utf-8.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Hreflang (international targeting)</b><div class="msg">Hreflang languages: en-AU, x-default</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Image alt text</b><div class="msg">15/15 images have alt text.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Internal links</b><div class="msg">130 internal links found.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Favicon</b><div class="msg">A favicon is declared.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Open Graph tags</b><div class="msg">og:title ✓  og:description ✓  og:image ✓</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Twitter/X card</b><div class="msg">twitter:card = summary_large_image</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Hreflang validation</b><div class="msg">All 2 hreflang codes are valid ISO format.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Hreflang self-reference</b><div class="msg">Page references itself in hreflang (required).</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Descriptive image filenames</b><div class="msg">15 image(s) use generic filenames (IMG_1234.jpg etc).</div><div class="fix">Rename uploads descriptively, e.g. end-of-lease-cleaning-canberra.webp.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Primary CTA present (SXO)</b><div class="msg">3 conversion CTA phrase(s) found (&quot;get a quote&quot;, &quot;book now&quot;…).</div></div></div></div></div><div class="section-block open" id="sec-geo">
+  <div class="section-head" style="cursor:default"><h2>GEO / AI SEO</h2><span class="section-score" style="color:var(--green)">92/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Structured data (Schema.org / JSON-LD)</b><div class="msg">Found types: LocalBusiness, CleaningService, BreadcrumbList, WebSite, FAQPage</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Business/Organization schema</b><div class="msg">Business entity markup present — AI assistants can extract who you are.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Question/answer content markup</b><div class="msg">FAQ / Article markup detected. Note: Google retired FAQ rich results in May 2026, but FAQ-style content remains valuable for AI citations.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Semantic HTML structure</b><div class="msg">Semantic elements found: main, nav, header, footer, section.</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>llms.txt (AI crawler guide)</b><div class="msg">No llms.txt file found (optional but recommended for AI visibility).</div><div class="fix">Consider adding /llms.txt summarising your business, key pages and contact details for AI assistants.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>AI crawler access (robots.txt)</b><div class="msg">No AI crawlers are blocked in robots.txt.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Question-based headings</b><div class="msg">10 question-style headings found (AI assistants match answers to question queries).</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Quotable definitions &amp; answers</b><div class="msg">2 definition-style statements found. AI engines preferentially cite clear &quot;X is…&quot; passages.</div><div class="fix">Write self-contained 1–3 sentence answers near the top of sections (ideal citation length is ~130–170 words).</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Specific facts &amp; statistics</b><div class="msg">10 numeric facts/statistics detected on the page.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Lists &amp; tables (AI-friendly structure)</b><div class="msg">7 lists, 0 tables found.</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>Multi-modal content (video)</b><div class="msg">No embedded video found (optional boost).</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Author / byline signals (E-E-A-T)</b><div class="msg">Author attribution detected (Person schema, author meta, or byline text).</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Content freshness signals</b><div class="msg">Dates appear in text but not in meta tags or schema.</div><div class="fix">Add datePublished/dateModified — content under ~3 months old is far more likely to be cited by AI answers.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>ChatGPT Search citability (OAI-SearchBot)</b><div class="msg">OAI-SearchBot is allowed — your content can be cited in ChatGPT Search.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Claude search citability (Claude-SearchBot)</b><div class="msg">Claude-SearchBot is allowed — citable in Claude’s search features.</div></div></div></div></div><div class="section-block open" id="sec-technical">
+  <div class="section-head" style="cursor:default"><h2>Technical &amp; Health</h2><span class="section-score" style="color:var(--green)">93/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>HTTP status code</b><div class="msg">Server responded with 200.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>HTTPS enabled</b><div class="msg">The site is served over a secure HTTPS connection.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>robots.txt</b><div class="msg">robots.txt is present and reachable.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>XML sitemap</b><div class="msg">Sitemap found: https://cleaningsparksolutions.com.au/sitemap.xml</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>DNS A record</b><div class="msg">Resolves to 172.67.222.104, 104.21.78.136</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>IPv6 (AAAA)</b><div class="msg">IPv6 enabled: 2606:4700:3032::ac43:de68</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Mail (MX)</b><div class="msg">Email configured: route1.mx.cloudflare.net, route2.mx.cloudflare.net</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>Name servers</b><div class="msg">sydney.ns.cloudflare.com, roman.ns.cloudflare.com</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>Domain age</b><div class="msg">Could not fetch registration data from RDAP for this TLD.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>404 handling</b><div class="msg">Fake URL correctly returns 404.</div></div></div><div class="check"><span class="check-icon fail">✗</span>
+  <div class="check-body"><b>Broken link check (sample)</b><div class="msg">Checked 15 links — 4 problem(s) found. 404 https://cleaningsparksolutions.com.au/cdn-cgi/content | 400 https://www.facebook.com/people/Cleaning-Spark-Solutions/61550502406730/ | 429 https://www.instagram.com/cleaning_spark_solutions</div><div class="fix">Fix or remove the broken links listed.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Redirect chain</b><div class="msg">No redirects — the URL serves content directly.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>URL structure</b><div class="msg">URL is 38 characters.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Content available without JavaScript</b><div class="msg">Primary content is present in the raw HTML.</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>Bing verification (IndexNow-ready)</b><div class="msg">No Bing verification detected. IndexNow (free) gives instant indexing on Bing, Yandex &amp; Naver.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Sitemap size &amp; structure</b><div class="msg">Sitemap lists 33 URLs.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Sitemap lastmod coverage</b><div class="msg">33/33 URLs carry &lt;lastmod&gt;.</div></div></div></div></div><div class="section-block open" id="sec-performance">
+  <div class="section-head" style="cursor:default"><h2>Speed &amp; Performance</h2><span class="section-score" style="color:var(--green)">88/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>TTFB (server response)</b><div class="msg">First byte received in 71 ms.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>HTML document size</b><div class="msg">HTML is 72 KB.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Render-blocking scripts in &lt;head&gt;</b><div class="msg">0 blocking &lt;script&gt; tags in &lt;head&gt; (2 external scripts total).</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>Stylesheets</b><div class="msg">1 external stylesheets, 6 inline scripts.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Lazy loading images</b><div class="msg">14/15 images use loading=&quot;lazy&quot;.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Compression (gzip/brotli)</b><div class="msg">Response uses br.</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Cache headers</b><div class="msg">Cache-Control: public, max-age=0, must-revalidate</div><div class="fix">Set long max-age for static assets (images, CSS, JS).</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Image dimensions declared (CLS)</b><div class="msg">15/15 images declare width/height — prevents layout shift.</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Modern image formats (WebP/AVIF)</b><div class="msg">0/15 images use modern formats.</div><div class="fix">Convert PNG/JPG to WebP/AVIF — typically 25-50% smaller files.</div></div></div></div></div><div class="section-block open" id="sec-security">
+  <div class="section-head" style="cursor:default"><h2>Security &amp; Trust</h2><span class="section-score" style="color:var(--green)">90/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>HTTP → HTTPS redirect</b><div class="msg">Plain HTTP requests are redirected to HTTPS.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>SSL certificate</b><div class="msg">Issued by Google Trust Services, valid until 2026-10-17 (35 days left), TLSv1.3.</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Security headers</b><div class="msg">3/6 recommended security headers present (X-Content-Type-Options, X-Frame-Options, Referrer-Policy).</div><div class="fix">Add missing headers: HSTS (Strict-Transport-Security) (strict-transport-security), Content-Security-Policy (content-security-policy), Permissions-Policy (permissions-policy) — these protect visitors and are a trust signal.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Email authentication (SPF + DMARC)</b><div class="msg">SPF ✓   DMARC ✓</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Mixed content</b><div class="msg">No insecure http:// resources on this https page.</div></div></div></div></div><div class="section-block open" id="sec-mobile">
+  <div class="section-head" style="cursor:default"><h2>Mobile</h2><span class="section-score" style="color:var(--green)">100/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Viewport meta tag</b><div class="msg">Responsive viewport meta tag present.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Apple touch icon</b><div class="msg">Apple touch icon declared.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Theme colour</b><div class="msg">theme-color set (nice mobile browser chrome).</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Legible font sizes</b><div class="msg">No extremely small fixed font sizes detected.</div></div></div></div></div><div class="section-block open" id="sec-content">
+  <div class="section-head" style="cursor:default"><h2>Content Quality</h2><span class="section-score" style="color:var(--green)">88/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Word count</b><div class="msg">1,437 words of visible text.</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Readability (Flesch Reading Ease)</b><div class="msg">Score: 46/100 (moderate).</div><div class="fix">Shorten sentences and use simpler words — aim for a grade-8 reading level.</div></div></div><div class="check"><span class="check-icon info">i</span>
+  <div class="check-body"><b>Reading time</b><div class="msg">~7 minutes to read.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Title ↔ H1 topic alignment</b><div class="msg">Title and H1 reinforce the same topic.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Who/How/Why trust proxies (helpful content)</b><div class="msg">About/team pages linked — supports the &quot;who created this&quot; test.</div></div></div></div></div><div class="section-block open" id="sec-local">
+  <div class="section-head" style="cursor:default"><h2>Local SEO (Australia)</h2><span class="section-score" style="color:var(--green)">96/100</span></div>
+  <div class="section-body" style="display:block"><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Australian domain (.au)</b><div class="msg">An .au domain is a strong trust &amp; ranking signal in Australia.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Australian location mentions</b><div class="msg">Mentions of: ACT (canberra, belconnen)</div></div></div><div class="check"><span class="check-icon warn">!</span>
+  <div class="check-body"><b>Phone number (NAP signal)</b><div class="msg">Phone found via tel:/schema (+61432889445) but NOT displayed as readable text on the page.</div><div class="fix">Also print the number visibly (e.g. &quot;0432 889 445&quot;) — a visible NAP is a core local ranking &amp; trust signal.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Address / PostalAddress markup</b><div class="msg">Postal address markup detected.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Geo meta tags</b><div class="msg">Geo meta found: AU-ACT</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Google Maps presence</b><div class="msg">Google Maps embed/link detected.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>ABN displayed</b><div class="msg">An Australian Business Number is shown — good for trust.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Social media profiles</b><div class="msg">Linked: Facebook, Instagram</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Click-to-call (tel: links)</b><div class="msg">6 click-to-call link(s) found — 76% of &quot;near me&quot; mobile searches lead to a visit within 24h.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Opening hours visible</b><div class="msg">Opening hours in structured data — businesses open at search time rank higher.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Review markup (aggregateRating)</b><div class="msg">Review/rating markup found — eligible for star ratings in results.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>Service-area signals</b><div class="msg">Service-area language detected (&quot;serving X&quot;, &quot;we come to you&quot;) — good for area-based local queries.</div></div></div><div class="check"><span class="check-icon pass">✓</span>
+  <div class="check-body"><b>GBP / review widget integration</b><div class="msg">Google Maps embed or third-party review widget detected — strong local trust signal.</div></div></div></div></div>
+<div class="section-block open"><div class="section-head" style="cursor:default"><h2>&#129302; AI visibility &amp; keywords</h2></div>
+<div class="section-body" style="display:block"><div style="margin-top:10px"><b>AI crawler access (robots.txt)</b><div class="kw-grid"><span class="kw-pill">✅ <b>GPTBot</b> <small>OpenAI — model training only</small></span><span class="kw-pill">✅ <b>OAI-SearchBot</b> <small>OpenAI — ChatGPT Search citability</small></span><span class="kw-pill">✅ <b>ChatGPT-User</b> <small>OpenAI — user-triggered browsing</small></span><span class="kw-pill">✅ <b>Google-Extended</b> <small>Google — Gemini training only (not Search)</small></span><span class="kw-pill">✅ <b>ClaudeBot</b> <small>Anthropic — model training only</small></span><span class="kw-pill">✅ <b>Claude-SearchBot</b> <small>Anthropic — Claude search citability</small></span><span class="kw-pill">✅ <b>Claude-User</b> <small>Anthropic — user-triggered browsing</small></span><span class="kw-pill">✅ <b>PerplexityBot</b> <small>Perplexity AI search</small></span><span class="kw-pill">✅ <b>CCBot</b> <small>Common Crawl — feeds most LLM training</small></span><span class="kw-pill">✅ <b>Amazonbot</b> <small>Amazon</small></span><span class="kw-pill">✅ <b>Meta-ExternalAgent</b> <small>Meta AI</small></span><span class="kw-pill">✅ <b>Applebot-Extended</b> <small>Apple — Apple Intelligence training opt-out</small></span><span class="kw-pill">✅ <b>Bytespider</b> <small>ByteDance — TikTok/Douyin AI</small></span><span class="kw-pill">✅ <b>cohere-ai</b> <small>Cohere</small></span></div></div><div style="margin-top:10px"><b>Top keywords</b><div class="kw-grid"><span class="kw-pill"><b>cleaning</b> &times;30 <small>(2.1%)</small></span><span class="kw-pill"><b>included</b> &times;19 <small>(1.3%)</small></span><span class="kw-pill"><b>see</b> &times;16 <small>(1.1%)</small></span><span class="kw-pill"><b>quote</b> &times;15 <small>(1%)</small></span><span class="kw-pill"><b>canberra</b> &times;15 <small>(1%)</small></span><span class="kw-pill"><b>what's</b> &times;14 <small>(1%)</small></span><span class="kw-pill"><b>fixed</b> &times;12 <small>(0.8%)</small></span><span class="kw-pill"><b>service</b> &times;9 <small>(0.6%)</small></span><span class="kw-pill"><b>queanbeyan</b> &times;9 <small>(0.6%)</small></span><span class="kw-pill"><b>carpet</b> &times;9 <small>(0.6%)</small></span><span class="kw-pill"><b>hours</b> &times;8 <small>(0.6%)</small></span><span class="kw-pill"><b>team</b> &times;8 <small>(0.6%)</small></span></div></div>
+<p class="psi-note" style="margin-top:10px">Readability: 46/100 Flesch &middot; Schema types: LocalBusiness, CleaningService, BreadcrumbList, WebSite, FAQPage &middot; Social: Facebook, Instagram</p>
+</div></div>
+</main>
+<footer class="site"><div class="container"><p>&copy; 2026 OzSEO Toolkit &middot; Free audits for Australian businesses &middot; powered by open source (Express, Cheerio, Lighthouse, claude-seo knowledge base)</p></div></footer>
+</body></html>
