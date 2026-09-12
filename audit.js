@@ -600,7 +600,7 @@ async function runAudit(input) {
     checkedLinks ? `Checked ${checkedLinks} links \u2014 ${brokenLinks.length} problem(s) found.${brokenLinks.length ? ' ' + brokenLinks.slice(0, 3).map((b) => `${b.status} ${b.url}`).join(' | ') : ''}` : 'No links to sample.',
     brokenLinks.length ? 'Fix or remove the broken links listed.' : '');
 
-  // ---------- 13. Enhanced checks (knowledge ported from claude-seo) ----------
+  // ---------- 13. Enhanced checks (knowledge ported from open SEO skill research) ----------
   try {
     await runEnhancedChecks(add, {
       $, html, bodyText, finalUrl, isHttps, schemaTypes, robotsTxt, wordCount,

@@ -55,8 +55,8 @@ npx wrangler deploy
   Cloudflare proxy) or accept the two info-level differences.
 - The backlink directory needs storage; on Workers bind a KV or keep it on Node.
 
-## Skills Hub — full claude-seo integration
-All 25 skills from github.com/AgriciDaniel/claude-seo are integrated:
+## Skills Hub — 25 integrated skill modules
+All 25 SEO skill modules are integrated:
 - **AUTO** (run in every audit): technical, geo, local, schema, sitemap, hreflang,
   images, content, sxo, ecommerce, maps, audit (scoring), drift (snapshots).
 - **Guided playbooks** on `/skills`: cluster, competitor-pages, content-brief,

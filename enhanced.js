@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Enhanced audit checks — knowledge ported from the open-source
- * claude-seo project (https://github.com/AgriciDaniel/claude-seo, MIT license):
+ * open-source SEO skill research:
  *  - seo-technical: redirect chains, URL structure, mixed content, JS rendering,
  *    Googlebot 2MB fetch limit, IndexNow
  *  - seo-geo: AI citability signals, crawler taxonomy (training vs citability bots)

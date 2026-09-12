@@ -80,7 +80,7 @@ ${sections}
 <p class="psi-note" style="margin-top:10px">Readability: ${d.readability ?? 'n/a'}/100 Flesch &middot; Schema types: ${esc((d.schemaTypes || []).join(', '))} &middot; Social: ${esc((d.social || []).join(', '))}</p>
 </div></div>
 </main>
-<footer class="site"><div class="container"><p>&copy; 2026 OzSEO Toolkit &middot; Free audits for Australian businesses &middot; powered by open source (Express, Cheerio, Lighthouse, claude-seo knowledge base)</p></div></footer>
+<footer class="site"><div class="container"><p>&copy; 2026 OzSEO Toolkit &middot; Free audits for Australian businesses &middot; powered by open source (Express, Cheerio, Lighthouse)</p></div></footer>
 </body></html>`;
 
 fs.writeFileSync(outPath, html);

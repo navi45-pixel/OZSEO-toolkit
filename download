@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+.env
+.wrangler/
+.dev.vars
+data/snapshots.json
+npm-debug.log*

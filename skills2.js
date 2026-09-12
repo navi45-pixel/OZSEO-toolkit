@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Second wave of checks ported from claude-seo skills:
+ * Second wave of skill checks:
  *  - seo-sitemap:   sitemap quality (URL count, lastmod coverage, legacy attrs)
  *  - seo-hreflang:  code validation, self-reference, x-default, https consistency
  *  - seo-images:    width/height (CLS), modern formats, descriptive filenames
